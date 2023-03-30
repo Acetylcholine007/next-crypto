@@ -1,0 +1,18 @@
+overwrite: true
+schema: './schema.gql'
+documents: './src/graphql/queries/*.ts'
+
+generates:
+  src/__generated__/graphql.ts:
+    config:
+      reactApolloVersion: 3
+      withHooks: true
+      namingConvention: 'keep'
+    plugins:
+      - add:
+          content: '// THIS IS A GENERATED FILE, use `yarn codegen` to regenerate'
+      - add:
+          content: '/* tslint:disable */'
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
